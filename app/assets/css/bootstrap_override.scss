@@ -1,0 +1,102 @@
+@media screen and (max-width: 767px) {
+    body.modal-open {
+        margin-right: 0;
+    }
+
+    .modal {
+        overflow-y: auto;
+    }
+}
+
+.close {
+    font-size: 28px;
+}
+
+.container {
+    max-width: 100%;
+}
+
+.navbar {
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+}
+
+.navbar-toggle {
+    float: left;
+    margin: 0;
+    border-radius: 0;
+    border: 0;
+}
+
+.btn {
+    border-radius: 0;
+
+    &.active {
+        box-shadow: none;
+        cursor: default;
+    }
+}
+
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12 {
+    padding: 0;
+}
+
+.btn-group-lg {
+    & > .btn {
+        border-radius: 0;
+    }
+}
+
+.thumbnail {
+    border-radius: 0;
+}
+
+.list-group {
+    margin: 0;
+}
+
+.list-group-item {
+    &:first-child, &:last-child {
+        border-radius: 0;
+    }
+}
+
+.container .jumbotron {
+    border-radius: 0;
+}
+
+.jumbotron {
+    margin: 0;
+}
+
+.panel {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.panel-heading {
+    border: 0;
+    border-radius: 0;
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+.alert {
+    border-radius: 0;
+}

@@ -1,0 +1,193 @@
+@import "mixin";
+
+.vocanew-index-contents {
+    @media screen and (min-width: 767px) {
+        .jumbotron {
+            &.vocanew-jumbotron {
+                height: $rectangle_ads_height;
+                padding-top: 64px;
+                padding-bottom: 64px;
+            }
+        }
+    }
+    .jumbotron {
+        &.vocanew-jumbotron {
+            @mixin vocanew-jumbotron($name, $background_color, $h1_color: #fff, $p_color: #ddd) {
+                &.#{$name} {
+                    background-color: $background_color;
+
+                    h1 {
+                        color: $h1_color;
+                    }
+
+                    p {
+                        color: $p_color;
+                    }
+                }
+            }
+
+            @include vocanew-jumbotron(vocaloid, $vocaloid_background_color);
+            @include vocanew-jumbotron(miku, $miku_background_color);
+            @include vocanew-jumbotron(rin, $rin_background_color, #fff, #eee);
+            @include vocanew-jumbotron(len, $len_background_color, #fff, #eee);
+            @include vocanew-jumbotron(luka, $luka_background_color);
+            @include vocanew-jumbotron(gumi, $gumi_background_color);
+            @include vocanew-jumbotron(gackpo, $gackpo_background_color);
+            @include vocanew-jumbotron(meiko, $meiko_background_color);
+            @include vocanew-jumbotron(kaito, $kaito_background_color);
+            @include vocanew-jumbotron(miki, $miki_background_color);
+            @include vocanew-jumbotron(yuki, $yuki_background_color);
+            @include vocanew-jumbotron(kiyoteru, $kiyoteru_background_color);
+            @include vocanew-jumbotron(lily, $lily_background_color, #222, #777);
+            @include vocanew-jumbotron(vy1, $vy1_background_color);
+            @include vocanew-jumbotron(iroha, $iroha_background_color);
+            @include vocanew-jumbotron(gachapo, $gachapo_background_color, #fff, #eee);
+            @include vocanew-jumbotron(piko, $piko_background_color);
+            @include vocanew-jumbotron(vy2, $vy2_background_color);
+            @include vocanew-jumbotron(mew, $mew_background_color);
+            @include vocanew-jumbotron(rion, $rion_background_color);
+            @include vocanew-jumbotron(cul, $cul_background_color, #fff, #eee);
+            @include vocanew-jumbotron(yukari, $yukari_background_color, #fff, #eee);
+            @include vocanew-jumbotron(ia, $ia_background_color, #222, #777);
+            @include vocanew-jumbotron(lapis, $lapis_background_color);
+            @include vocanew-jumbotron(mayu, $mayu_background_color, #222, #777);
+            @include vocanew-jumbotron(sasara, $sasara_background_color, #fff, #eee);
+            @include vocanew-jumbotron(other, $other_background_color, #222, #777);
+        }  // End of &.vocanew-jumbotron
+    }  // End of .jumbotron
+
+    @media screen and (max-width: 767px) {
+        .vocanew-contents {
+            .panel-vocanew {
+                margin-left: 0 !important;
+            }
+
+            .panel-body {
+                .media-body {
+                    overflow: visible;
+
+                    .more {
+                        float: left;
+                    }
+                }
+            }
+        }
+    }
+    .vocanew-contents {
+        /* bootstrap override */
+        .panel {
+            border: 0;
+        }
+
+        .panel-vocanew {
+            margin-top: $margin;
+            margin-left: $margin;
+
+            & > .panel-heading {
+                font-weight: bold;
+                padding: 0;
+                border-bottom: 0;
+
+                a {
+                    display: inline-block;
+                    padding: 12px 15px;
+                }
+
+                @mixin vocanew-panel-heading($name, $background_color, $color, $hover_color: #fff) {
+                    &.#{$name} {
+                        background-color: $background_color;
+                        border-left: 20px solid rgba($color, .5);
+
+                        a {
+                            color: $color;
+
+                            &:hover,
+                            &:active,
+                            &:focus {
+                                color: $hover_color;
+                            }
+                        }
+                    }
+                }
+
+                @include vocanew-panel-heading(miku, $miku_background_color, $miku_color);
+                @include vocanew-panel-heading(rin, $rin_background_color, $rin_color);
+                @include vocanew-panel-heading(len, $len_background_color, $len_color);
+                @include vocanew-panel-heading(luka, $luka_background_color, $luka_color);
+                @include vocanew-panel-heading(gumi, $gumi_background_color, $gumi_color);
+                @include vocanew-panel-heading(gackpo, $gackpo_background_color, $gackpo_color);
+                @include vocanew-panel-heading(meiko, $meiko_background_color, $meiko_color);
+                @include vocanew-panel-heading(kaito, $kaito_background_color, $kaito_color);
+                @include vocanew-panel-heading(miki, $miki_background_color, $miki_color);
+                @include vocanew-panel-heading(yuki, $yuki_background_color, $yuki_color);
+                @include vocanew-panel-heading(kiyoteru, $kiyoteru_background_color, $kiyoteru_color);
+                @include vocanew-panel-heading(lily, $lily_background_color, $lily_color, lighten($lily_color, 20%));
+                @include vocanew-panel-heading(vy1, $vy1_background_color, $vy1_color);
+                @include vocanew-panel-heading(iroha, $iroha_background_color, $iroha_color);
+                @include vocanew-panel-heading(gachapo, $gachapo_background_color, $gachapo_color);
+                @include vocanew-panel-heading(piko, $piko_background_color, $piko_color);
+                @include vocanew-panel-heading(vy2, $vy2_background_color, $vy2_color);
+                @include vocanew-panel-heading(mew, $mew_background_color, $mew_color);
+                @include vocanew-panel-heading(rion, $rion_background_color, $rion_color);
+                @include vocanew-panel-heading(cul, $cul_background_color, $cul_color);
+                @include vocanew-panel-heading(yukari, $yukari_background_color, $yukari_color);
+                @include vocanew-panel-heading(ia, $ia_background_color, $ia_color, lighten($ia_color, 20%));
+                @include vocanew-panel-heading(lapis, $lapis_background_color, $lapis_color);
+                @include vocanew-panel-heading(mayu, $mayu_background_color, $mayu_color, lighten($mayu_color, 20%));
+                @include vocanew-panel-heading(sasara, $sasara_background_color, $sasara_color);
+                @include vocanew-panel-heading(other, $other_background_color, $other_color, lighten($other_color, 20%));
+            }
+        }
+
+        .panel-body {
+            padding-left: 20px;
+            min-height: 14em;
+        }
+
+        .vocanew-video-thumbnail {
+            position: relative;
+            @include invert-link();
+
+            .vocanew-video-length {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                background-color: #000;
+                padding: 0 2px;
+                font-size: 80%;
+            }
+        }
+
+        .vocanew-more {
+            font-size: 80%;
+        }
+
+        .vocanew-more-description {
+            display: block;
+            height: 0;
+            overflow: hidden;
+
+            &.collapse + .vocanew-more,
+            &.collapsing + .vocanew-more.collapsed {
+                .vocanew-all {
+                    display: inline;
+                }
+
+                .vocanew-close {
+                    display: none;
+                }
+            }
+
+            &.in + .vocanew-more,
+            &.collapsing + .vocanew-more {
+                .vocanew-all {
+                    display: none;
+                }
+
+                .vocanew-close {
+                    display: inline;
+                }
+            }
+        }
+    }  // End of .vocanew-contents
+}  // End of .vocanew-index-contents

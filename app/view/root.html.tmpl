@@ -1,0 +1,53 @@
+<div class="vocanew-index-contents">
+  <div class="row">
+    <header class="col-md-12">
+      <div class="jumbotron vocanew-jumbotron {{ $.SelectedVocaloid.Key }}">
+        <div class="container text-center">
+          <h1>{{ $.SelectedVocaloid.Name }}</h1>
+          {{ if $.SelectedVocaloid.NameEn }}
+          <p>{{ $.SelectedVocaloid.NameEn }}</p>
+          {{ end }}
+        </div>
+      </div>
+    </header>
+  </div>
+
+  {{ template "pagination.html" . }}
+
+  <div class="row">
+    <div class="col-md-12 vocanew-contents">
+      {{ range $.Songs }}
+      <div class="panel panel-vocanew">
+        <div class="panel-heading{{ range .Vocaloids }}{{ if $.SelectedVocaloidMap }} {{ index $.SelectedVocaloidMap .Key }}{{ else }} {{ .Key }}{{ end }}{{ else }} other{{ end }}">
+          <a href="http://www.nicovideo.jp/watch/{{ .VideoId }}" target="_blank">{{ .Title }}</a>
+        </div>
+        <div class="panel-body">
+          <div class="media">
+            <div class="pull-left vocanew-video-thumbnail">
+              <a href="http://www.nicovideo.jp/watch/{{ .VideoId }}" target="_blank">
+                <img class="media-object" src="{{ .ThumbnailUrl }}" alt="{{ .Title }}" width="130" height="100" />
+                <div class="vocanew-video-length">{{ .FormatLength }}</div>
+              </a>
+            </div>
+            <div class="media-body">
+              <h5 class="media-heading"><b>{{ .PostTime.Format "2006年01月02日 15:04" }}</b> 投稿 </h5>
+              <p class="more">
+                {{ $descriptions := splitFirstNLines .Description 5 }}
+                {{ $desc1 := index $descriptions 0 }}
+                {{ raw $desc1 }}
+                {{ if len $descriptions | eq 2 }}
+                {{ $desc2 := index $descriptions 1 }}
+                <span id="{{ .VideoId }}" class="vocanew-more-description collapse">{{ raw $desc2 }}</span>
+                <a href="#{{ .VideoId }}" class="js-vocanew-more vocanew-more" data-toggle="collapse" data-parent=".more">[<span class="vocanew-all">全文表示</span><span class="vocanew-close">閉じる</span>]</a>
+                {{ end }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+
+  {{ template "pagination.html" . }}
+</div>

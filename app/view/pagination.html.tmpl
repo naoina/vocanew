@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <div class="btn-group btn-group-lg btn-group-justified vocanew-pagination">
+      {{ if $.Page.HasPrev }}
+        {{ if eq $.Page.Prev.Number 1 }}
+          {{ if $.SelectedKeys }}
+            <a href="{{ url "root" }}?{{ join $.SelectedKeys "&" }}" class="btn btn-info"><i class="fa fa-chevron-left"></i></a>
+          {{ else }}
+            <a href="{{ url "root" }}" class="btn btn-info"><i class="fa fa-chevron-left"></i></a>
+          {{ end }}
+        {{ else }}
+          {{ if $.SelectedKeys }}
+            <a href="?p={{ $.Page.Prev.Number }}&{{ join $.SelectedKeys "&" }}" class="btn btn-info"><i class="fa fa-chevron-left"></i></a>
+          {{ else }}
+            <a href="?p={{ $.Page.Prev.Number }}" class="btn btn-info"><i class="fa fa-chevron-left"></i></a>
+          {{ end }}
+        {{ end }}
+      {{ else }}
+        <span class="btn btn-info disabled"><i class="fa fa-chevron-left"></i></span>
+      {{ end }}
+      {{ range $.Pages }}
+        {{ if eq .Number $.Page.Number }}
+          <span class="btn btn-primary active">{{ .Number }}</span>
+        {{ else }}
+          {{ if eq .Number 1 }}
+            {{ if $.SelectedKeys }}
+              <a href="{{ url "root" }}?{{ join $.SelectedKeys "&" }}" class="btn btn-info hidden-xs">{{ .Number }}</a>
+            {{ else }}
+              <a href="{{ url "root" }}" class="btn btn-info hidden-xs">{{ .Number }}</a>
+            {{ end }}
+          {{ else }}
+            {{ if $.SelectedKeys }}
+              <a href="?p={{ .Number }}&{{ join $.SelectedKeys "&" }}" class="btn btn-info hidden-xs">{{ .Number }}</a>
+            {{ else }}
+              <a href="?p={{ .Number }}" class="btn btn-info hidden-xs">{{ .Number }}</a>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ if $.Page.HasNext }}
+        {{  if $.SelectedKeys  }}
+          <a href="?p={{ $.Page.Next.Number }}&{{ join $.SelectedKeys "&" }}" class="btn btn-info"><i class="fa fa-chevron-right"></i></a>
+        {{  else  }}
+          <a href="?p={{ $.Page.Next.Number }}" class="btn btn-info"><i class="fa fa-chevron-right"></i></a>
+        {{  end  }}
+      {{ else }}
+        <span class="btn btn-info disabled"><i class="fa fa-chevron-right"></i></span>
+      {{ end }}
+    </div>
+  </div>
+</div>
+<!-- End of pagination -->

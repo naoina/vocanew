@@ -1,0 +1,7 @@
+.env
+app/assets/bower_components
+node_modules
+vocanew
+public/assets
+tmp
+db/db.sqlite3

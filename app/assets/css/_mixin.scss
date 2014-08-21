@@ -1,0 +1,76 @@
+$margin: 10px;
+$color: #222;
+$invert_color: #eee;
+$invert_background_color: #333;
+$rectangle_ads_width: 300px;
+$rectangle_ads_height: 250px;
+$xs_sidebar_width: 270px;
+$sidebar_collapse_icon_width: 50px;
+
+$vocaloid_background_color: #34589b;
+$vocaloid_color: $invert_color;
+$miku_background_color: #1fb2bc;
+$miku_color: $invert_color;
+$rin_background_color: #ebbd06;
+$rin_color: lighten($invert_color, 50%);
+$len_background_color: #ebbd06;
+$len_color: lighten($invert_color, 50%);
+$luka_background_color: #cd82cf;
+$luka_color: $invert_color;
+$gumi_background_color: #7cbf58;
+$gumi_color: $invert_color;
+$gackpo_background_color: #686cb3;
+$gackpo_color: $invert_color;
+$meiko_background_color: #b12828;
+$meiko_color: $invert_color;
+$kaito_background_color: #4b81e0;
+$kaito_color: $invert_color;
+$miki_background_color: #cd1f40;
+$miki_color: $invert_color;
+$yuki_background_color: #e9518c;
+$yuki_color: $invert_color;
+$kiyoteru_background_color: #4d509d;
+$kiyoteru_color: $invert_color;
+$lily_background_color: #fedc32;
+$lily_color: $color;
+$vy1_background_color: #000;
+$vy1_color: $invert_color;
+$iroha_background_color: #eb2b28;
+$iroha_color: $invert_color;
+$gachapo_background_color: #9fce66;
+$gachapo_color: lighten($invert_color, 50%);
+$piko_background_color: #b3a7b5;
+$piko_color: $invert_color;
+$vy2_background_color: #4e5158;
+$vy2_color: $invert_color;
+$mew_background_color: #817776;
+$mew_color: $invert_color;
+$rion_background_color: #6c4479;
+$rion_color: $invert_color;
+$cul_background_color: #ff003c;
+$cul_color: $invert_color;
+$yukari_background_color: #cfb6d6;
+$yukari_color: lighten($invert_color, 50%);
+$ia_background_color: #fdfef9;
+$ia_color: $color;
+$lapis_background_color: #0777cb;
+$lapis_color: $invert_color;
+$mayu_background_color: #f3ead5;
+$mayu_color: $color;
+$sasara_background_color: #ffb8c9;
+$sasara_color: #fff;
+$other_background_color: #eee;
+$other_color: $color;
+
+@mixin invert-link() {
+    a {
+        color: $invert_color;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: lighten($invert_color, 50%);
+            text-decoration: none;
+        }
+    }
+}

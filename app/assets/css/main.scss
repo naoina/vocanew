@@ -1,0 +1,346 @@
+@import "mixin";
+
+@mixin vocanew-sidebar-transition($property) {
+    transition: $property .15s ease-out;
+}
+
+@mixin vocanew-sidebar-collapse {
+    @include vocanew-sidebar-transition(left);
+
+    &.vocanew-collapse-active {
+        left: $xs_sidebar_width;
+    }
+}
+
+a.vocanew-invert {
+    color: $invert_color;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: lighten($invert_color, 50%);
+    }
+}
+
+.vocanew-navbar {
+    color: $invert_color;
+    background-color: $invert_background_color;
+
+    @include vocanew-sidebar-collapse();
+
+    .vocanew-collapse-btn {
+        width: $sidebar_collapse_icon_width;
+        height: $sidebar_collapse_icon_width;
+        padding-left: $sidebar_collapse_icon_width - 36px;
+        background-color: lighten($invert_background_color, 5%);
+
+        &:hover {
+            background-color: lighten($invert_background_color, 10%);
+        }
+
+        .icon-bar {
+            border-radius: 0;
+
+            &.vocanew-invert {
+                background-color: $invert_color;
+            }
+        }
+    }
+
+    &.vocanew-collapse-active {
+        padding-left: $sidebar_collapse_icon_width;
+
+        .vocanew-collapse-btn {
+            padding-left: $sidebar_collapse_icon_width - 33px;
+            position: fixed;
+            top: 0;
+            left: $xs_sidebar_width;
+            width: $sidebar_collapse_icon_width;
+            height: $sidebar_collapse_icon_width;
+            @include vocanew-sidebar-transition(left);
+
+            .icon-bar {
+                &:first-child {
+                    transform: rotate(45deg) translate(0, 5px);
+                }
+
+                &:nth-child(2) {
+                    display: none;
+                }
+
+                &:last-child {
+                    transform: rotate(-45deg) translate(0, -4px);
+                }
+            }
+        }
+    }
+
+    .vocanew-brand {
+        color: $invert_color;
+        background-color: $invert_background_color;
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    .vocanew-navbar-right {
+        .navbar-link,
+        .navbar-btn {
+            margin-left: 1em;
+        }
+    }
+}
+
+.vocanew-vocaloid-list-group {
+    /* bootstrap override */
+    a.list-group-item {
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $invert_background_color;
+        }
+    }
+
+    .vocanew-vocaloid-list-item {
+        font-size: 120%;
+        color: $invert_color;
+        background-color: $invert_background_color;
+        border-left: 0;
+        border-right-width: 5px;
+        border-right-style: solid;
+        position: relative;
+
+        &:first-child {
+            border-top: 0;
+        }
+
+        span {
+            white-space: nowrap;
+        }
+
+        & > span {
+            color: $invert_color;
+        }
+
+        & > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            overflow: hidden;
+            transition: width .15s ease-out;
+
+            & > span {
+                position: absolute;
+                top: 10px;
+                left: 15px;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            & > div {
+                transition: none;
+                display: none;
+            }
+        }
+
+        &:hover,
+        &.vocanew-active {
+            & > div {
+                width: 100%;
+            }
+        }
+
+        @mixin vocanew-list-item($name, $background_color, $color) {
+            &.#{$name} {
+                border-right-color: $background_color;
+
+                & > div {
+                    background-color: $background_color;
+
+                    & > span {
+                        color: $color;
+                    }
+                }
+            }
+        }
+
+        @include vocanew-list-item(vocaloid, $vocaloid_background_color, $vocaloid_color);
+        @include vocanew-list-item(miku, $miku_background_color, $miku_color);
+        @include vocanew-list-item(rin, $rin_background_color, $rin_color);
+        @include vocanew-list-item(len, $len_background_color, $len_color);
+        @include vocanew-list-item(luka, $luka_background_color, $luka_color);
+        @include vocanew-list-item(gumi, $gumi_background_color, $gumi_color);
+        @include vocanew-list-item(gackpo, $gackpo_background_color, $gackpo_color);
+        @include vocanew-list-item(meiko, $meiko_background_color, $meiko_color);
+        @include vocanew-list-item(kaito, $kaito_background_color, $kaito_color);
+        @include vocanew-list-item(miki, $miki_background_color, $miki_color);
+        @include vocanew-list-item(yuki, $yuki_background_color, $yuki_color);
+        @include vocanew-list-item(kiyoteru, $kiyoteru_background_color, $kiyoteru_color);
+        @include vocanew-list-item(lily, $lily_background_color, $lily_color);
+        @include vocanew-list-item(vy1, $vy1_background_color, $vy1_color);
+        @include vocanew-list-item(iroha, $iroha_background_color, $iroha_color);
+        @include vocanew-list-item(gachapo, $gachapo_background_color, $gachapo_color);
+        @include vocanew-list-item(piko, $piko_background_color, $piko_color);
+        @include vocanew-list-item(vy2, $vy2_background_color, $vy2_color);
+        @include vocanew-list-item(mew, $mew_background_color, $mew_color);
+        @include vocanew-list-item(rion, $rion_background_color, $rion_color);
+        @include vocanew-list-item(cul, $cul_background_color, $cul_color);
+        @include vocanew-list-item(yukari, $yukari_background_color, $yukari_color);
+        @include vocanew-list-item(ia, $ia_background_color, $ia_color);
+        @include vocanew-list-item(lapis, $lapis_background_color, $lapis_color);
+        @include vocanew-list-item(mayu, $mayu_background_color, $mayu_color);
+        @include vocanew-list-item(sasara, $sasara_background_color, $sasara_color);
+        @include vocanew-list-item(other, $other_background_color, $other_color);
+    }
+}
+
+.vocanew-left-sidebar {
+    width: $rectangle_ads_width;
+    z-index: 20;
+    float: left;
+}
+@media screen and (max-width: 767px) {
+    .vocanew-left-sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        overflow-y: auto;
+        width: 0;
+        z-index: 1000;
+        @include vocanew-sidebar-transition(width);
+
+        &.vocanew-collapse-active {
+            width: $xs_sidebar_width;
+        }
+    }
+}
+
+.vocanew-rectangle-ads {
+    height: $rectangle_ads_height;
+}
+
+@media screen and (max-width: 767px) {
+    .vocanew-main-container {
+        left: 0;
+
+        @include vocanew-sidebar-collapse();
+    }
+}
+@media screen and (min-width: 768px) {
+    .vocanew-main-container {
+        padding-left: $rectangle_ads_width;
+    }
+}
+.vocanew-container {
+    float: left;
+    min-width: 100%;
+
+    * {
+        z-index: 20;
+    }
+}
+
+.vocanew-big-banner {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.vocanew-footer {
+    color: $invert_color;
+    background-color: $invert_background_color;
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+
+    @include invert-link();
+
+    a {
+        text-decoration: underline;
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+
+    div {
+        display: inline-block;
+    }
+}
+
+.vocanew-pagination {
+    /* bootstrap override */
+    &.btn-group-lg {
+        & > .btn {
+            padding-top: 11px;
+            padding-bottom: 11px;
+            border: 0;
+
+            &.disabled {
+                opacity: 1;
+                filter: "alpha(opacity=100)";
+                color: rgba($invert_color, .4);
+            }
+
+            @media screen and (min-width: 768px) {
+                &.hidden-xs {
+                    display: table-cell !important;
+                }
+            }
+        }
+    }
+}
+
+.vocanew-contact-textarea {
+    min-width: 100%;
+}
+
+.vocanew-contact-icon {
+    vertical-align: middle;
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.vocanew-contact-modal-icon {
+    float: right;
+    padding: 10px 15px;
+}
+
+.vocanew-alert {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    border-radius: 0;
+    top: -5.2em;
+    display: none;
+}
+
+.vocanew-submit-label {
+    position: relative;
+    width: 2em;
+    margin-left: auto;
+    margin-right: auto;
+
+    .vocanew-loading-img {
+        position: absolute;
+        top: 3px;
+        left: -22px;
+        display: none;
+    }
+}
+
+.vocanew-form-error {
+    display: none;
+}
