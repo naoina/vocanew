@@ -41,6 +41,7 @@ gulp.task 'scripts', ->
   .pipe(source 'app.js')
   .pipe(do buffer)
   .pipe(gp.if isDist, do gp.uglify)
+  .pipe(gp.chmod(644))
   .pipe(gulp.dest DESTDIR)
 
 gulp.task 'image', ->
@@ -53,6 +54,7 @@ gulp.task 'bower', ->
   filter = if isDist then /\.(?:otf|eot|svg|ttf|woff)$/ else /.*/
   gulp
     .src(mainBowerFiles filter: filter, includeDev: not isDist)
+    .pipe(gp.chmod(644))
     .pipe(gulp.dest DESTDIR)
 
 gulp.task 'watch', ['css', 'scripts', 'image', 'bower'], ->
