@@ -57,7 +57,7 @@ func (m *Song) FindByVocaloid(vocaloids []*Vocaloid, offset, limit int) ([]*Song
 		keys[i] = v.Key
 	}
 	var songVocaloids []SongVocaloid
-	if err := db.Select(&songVocaloids, db.Distinct("VideoId"), db.Where("Key").In(keys...), db.Offset(offset).Limit(limit)); err != nil {
+	if err := db.Select(&songVocaloids, db.Distinct("VideoId"), db.Where("Key").In(keys...), db.OrderBy("Id", genmai.DESC).Offset(offset).Limit(limit)); err != nil {
 		return nil, err
 	}
 	keys = keys[:0]
