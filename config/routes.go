@@ -21,9 +21,9 @@ var routes = RouteTable{
 		Path:       "/contact",
 		Controller: &controller.Contact{},
 	}, {
-		Name:       "feed",
-		Path:       "/feed",
-		Controller: &controller.Feed{},
+		Name:       "newsong",
+		Path:       "/newsong",
+		Controller: &controller.Newsong{},
 	},
 }
 

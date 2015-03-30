@@ -17,11 +17,11 @@ var rssDescription = template.Must(template.New("description").Parse(`
 <p><small><strong>{{ .FormatLength }}</strong> | <strong>{{ .FormatPostTime }}</strong> 投稿</small></p>
 `))
 
-type Feed struct {
+type Newsong struct {
 	*kocha.DefaultController
 }
 
-func (fe *Feed) GET(c *kocha.Context) error {
+func (fe *Newsong) GET(c *kocha.Context) error {
 	data := c.Data.(map[string]interface{})
 	selectedVocaloids := data["SelectedVocaloids"].([]*model.Vocaloid)
 	p, err := strconv.Atoi(c.Params.Get("p"))
