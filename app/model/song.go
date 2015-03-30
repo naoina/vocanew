@@ -34,7 +34,7 @@ func (m *Song) Count(vocaloids ...*Vocaloid) (int64, error) {
 	for _, v := range vocaloids[1:] {
 		where = where.Or(db.Where("Key", "=", v.Key))
 	}
-	return count, db.Select(&count, db.Count(db.Distinct("VideoId")), db.From(&SongVocaloid{}), where)
+	return count, db.Select(&count, db.Count("Id"), db.From(&SongVocaloid{}), where)
 }
 
 func (m *Song) LatestUpdate() (time.Time, error) {
