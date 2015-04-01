@@ -12,6 +12,7 @@ http://vocanew.kuune.org/ (in Japanese)
 ## Setup
 
     go get -u ./...
+    go get -u github.com/naoina/kocha/cmd/...
     go get -u github.com/ddollar/forego
     go get -u github.com/mailhog/MailHog
     npm install -g gulp  # If you haven't installed yet.
