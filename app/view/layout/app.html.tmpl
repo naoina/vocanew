@@ -58,7 +58,7 @@
       </div>
 
       <div class="list-group vocanew-vocaloid-list-group">
-        <a class="list-group-item vocanew-vocaloid-list-item vocaloid{{ if not .Data.SelectedKeys }} vocanew-active{{ end }}" href="/"><span>VOCALOID</span><div><span>VOCALOID</span></div></a>
+        <a class="list-group-item vocanew-vocaloid-list-item vocaloid{{ if not $.SelectedKeys }} vocanew-active{{ end }}" href="/"><span>VOCALOID</span><div><span>VOCALOID</span></div></a>
         {{ range $.Vocaloids }}
           <a class="list-group-item vocanew-vocaloid-list-item {{ .Key }}{{ if in $.SelectedKeys .Key }} vocanew-active{{ end }}" href="/?{{ .Key }}"><span>{{ .Name }}</span><div><span>{{ .Name }}</span></div></a>
         {{ end }}
