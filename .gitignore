@@ -5,3 +5,4 @@ vocanew
 public/assets
 tmp
 db/db.sqlite3
+vendor/
