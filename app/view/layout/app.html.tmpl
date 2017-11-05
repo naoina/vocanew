@@ -29,11 +29,9 @@
           <span class="icon-bar vocanew-invert"></span>
         </button>
         <b><a href="/" class="navbar-brand vocanew-brand">ＶＯＣＡ−ＮＥＷ</a></b>
-        <a href="#" class="js-vocanew-toggle-contact-modal vocanew-contact-modal-icon vocanew-invert visible-xs"><i class="vocanew-contact-icon fa fa-edit fa-2x"></i></a>
       </div>
 
       <div class="collapse navbar-collapse navbar-right vocanew-navbar-right">
-        <a href="/contact" class="js-vocanew-toggle-contact-modal navbar-link vocanew-invert"><i class="vocanew-contact-icon fa fa-edit fa-2x"></i>ご意見・ご要望</a>
         <a href="/about" class="btn btn-default navbar-btn">ぼかにゅーとは？</a>
       </div>
     </nav>
@@ -133,33 +131,6 @@
   <!-- End of forth .row (footer) -->
 </div>
 <!-- End of div.container -->
-<div id="js-vocanew-contact-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contact" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form action="/contact" method="post" enctype="multipart/form-data" class="js-vocanew-contact-form">
-        <div class="modal-header">
-          <button type="button" class="js-vocanew-close close" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">ご意見・ご要望</h4>
-        </div>
-        <fieldset class="js-vocanew-contact-form-fieldset">
-          <div class="modal-body">
-            <div class="alert alert-danger vocanew-form-error js-vocanew-form-error" data-default-error-message="エラーが発生しました。しばらくしてから再度お試しください。"><strong>&times;</strong> <span class="js-vocanew-error-message"></span></div>
-            <textarea name="text" rows="8" class="vocanew-contact-textarea" placeholder="ここに入力してください..."></textarea>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-success btn-lg btn-block js-vocanew-contact-submit">
-              <div class="vocanew-submit-label"><img src="/assets/loading.gif" alt="" class="vocanew-loading-img js-vocanew-loading-img" width="18" height="18">送信</div>
-            </button>
-          </div>
-        </fieldset>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="alert alert-success text-center vocanew-alert js-vocanew-alert">
-  ご意見・ご要望を送信しました。<br>
-  ありがとうございました。
-</div>
 {{ if not isDev }}
 <script type="text/javascript">
   var _gaq = _gaq || [];
